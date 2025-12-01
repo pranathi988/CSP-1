@@ -1,0 +1,244 @@
+import { Link } from "react-router-dom";
+import { Navigation } from "@/components/Navigation";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { 
+  Search, 
+  Mic, 
+  Image as ImageIcon, 
+  MessageSquare, 
+  Volume2, 
+  Youtube, 
+  BookOpen,
+  Globe,
+  Heart,
+  Users,
+  Sparkles,
+  ArrowRight
+} from "lucide-react";
+
+const Index = () => {
+  return (
+    <div className="min-h-screen bg-gradient-soft">
+      <Navigation />
+      
+      {/* Hero Section */}
+      <section className="container mx-auto px-4 pt-32 pb-20">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/50 border border-accent-foreground/10 mb-6 animate-fade-in">
+            <Sparkles className="w-4 h-4 text-secondary" />
+            <span className="text-sm font-medium">AI-Powered Health Assistant</span>
+          </div>
+          
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in">
+            Your AI Health &{" "}
+            <span className="bg-gradient-primary bg-clip-text text-transparent">
+              Hygiene Assistant
+            </span>
+          </h1>
+          
+          <p className="text-xl text-muted-foreground mb-10 max-w-3xl mx-auto animate-fade-in">
+            Get instant health and hygiene advice in your language — through text, voice, or image.
+            Available in English, Telugu, and Hindi.
+          </p>
+
+          {/* Search Bar */}
+          <div className="max-w-2xl mx-auto mb-8 animate-fade-in">
+            <Card className="p-2 shadow-lg border-border/50 bg-card">
+              <div className="flex gap-2">
+                <div className="relative flex-1">
+                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
+                  <Input
+                    type="text"
+                    placeholder="Ask any health or hygiene question..."
+                    className="h-14 pl-12 pr-4 text-base border-none bg-transparent"
+                  />
+                </div>
+                <Button size="icon" variant="outline" className="h-14 w-14 flex-shrink-0" title="Voice input">
+                  <Mic className="w-5 h-5" />
+                </Button>
+                <Button size="icon" variant="outline" className="h-14 w-14 flex-shrink-0" title="Image upload">
+                  <ImageIcon className="w-5 h-5" />
+                </Button>
+                <Link to="/chatbot">
+                  <Button className="h-14 px-8 bg-gradient-primary shadow-glow hover:shadow-glow-green transition-all">
+                    <span className="font-semibold">Start Chat</span>
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
+              </div>
+            </Card>
+          </div>
+
+          {/* Quick Stats */}
+          <div className="flex flex-wrap justify-center gap-8 text-sm animate-fade-in">
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-muted-foreground">AI-Powered Responses</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+              <span className="text-muted-foreground">3 Languages Supported</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-muted-foreground">100+ Resources</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="container mx-auto px-4 py-20">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4">
+              Powerful Features for{" "}
+              <span className="bg-gradient-primary bg-clip-text text-transparent">
+                Better Health
+              </span>
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Everything you need to stay informed about health and hygiene
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: MessageSquare,
+                title: "Voice-Enabled Chatbot",
+                description: "Speak naturally and get instant responses to your health queries",
+                color: "text-primary",
+              },
+              {
+                icon: Volume2,
+                title: "Audio Replies (Telugu)",
+                description: "Listen to health advice in Telugu for better understanding",
+                color: "text-secondary",
+              },
+              {
+                icon: Youtube,
+                title: "Video Recommendations",
+                description: "Watch curated YouTube videos for visual learning",
+                color: "text-primary",
+              },
+              {
+                icon: BookOpen,
+                title: "Resource Dashboard",
+                description: "Access 100+ PDFs, PPTs and health guides anytime",
+                color: "text-secondary",
+              },
+              {
+                icon: ImageIcon,
+                title: "Visual Analysis",
+                description: "Upload images for health-related visual queries",
+                color: "text-primary",
+              },
+              {
+                icon: Globe,
+                title: "Multilingual",
+                description: "Support for English, Telugu, and Hindi languages",
+                color: "text-secondary",
+              },
+              {
+                icon: Heart,
+                title: "Personalized Care",
+                description: "Get tailored health advice based on your queries",
+                color: "text-primary",
+              },
+              {
+                icon: Users,
+                title: "Community Focus",
+                description: "Built for diverse communities and accessibility",
+                color: "text-secondary",
+              },
+            ].map((feature, index) => (
+              <Card
+                key={index}
+                className="group hover:shadow-lg transition-all duration-300 hover:scale-105 bg-gradient-card border-border/50"
+              >
+                <CardHeader>
+                  <div className="w-14 h-14 rounded-xl bg-gradient-primary flex items-center justify-center shadow-glow mb-4 group-hover:shadow-glow-green transition-all">
+                    <feature.icon className={`w-7 h-7 text-white`} />
+                  </div>
+                  <CardTitle className="text-lg">{feature.title}</CardTitle>
+                  <CardDescription className="text-sm leading-relaxed">
+                    {feature.description}
+                  </CardDescription>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="container mx-auto px-4 py-20">
+        <div className="max-w-4xl mx-auto">
+          <Card className="bg-gradient-primary text-white shadow-glow border-none overflow-hidden relative">
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-20" />
+            <CardContent className="p-12 text-center relative z-10">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Ready to Start Your Health Journey?
+              </h2>
+              <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+                Join thousands of users who trust our AI assistant for reliable health and hygiene information
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/chatbot">
+                  <Button size="lg" variant="secondary" className="text-lg px-8 shadow-lg hover:scale-105 transition-all">
+                    Try Chatbot Now
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
+                <Link to="/resources">
+                  <Button size="lg" variant="outline" className="text-lg px-8 bg-white/10 hover:bg-white/20 text-white border-white/30 hover:scale-105 transition-all">
+                    Browse Resources
+                    <BookOpen className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border bg-card/50 backdrop-blur-sm">
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 rounded-lg bg-gradient-primary flex items-center justify-center">
+                <span className="text-xl">🏥</span>
+              </div>
+              <span className="font-bold text-lg bg-gradient-primary bg-clip-text text-transparent">
+                Health AI
+              </span>
+            </div>
+            <div className="text-sm text-muted-foreground text-center">
+              © 2024 Health & Hygiene AI Assistant. CSP Project.
+            </div>
+            <div className="flex gap-6 text-sm text-muted-foreground">
+              <Link to="/about" className="hover:text-primary transition-colors">
+                About
+              </Link>
+              <Link to="/resources" className="hover:text-primary transition-colors">
+                Resources
+              </Link>
+              <a href="#" className="hover:text-primary transition-colors">
+                Privacy
+              </a>
+              <a href="#" className="hover:text-primary transition-colors">
+                Terms
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default Index;
